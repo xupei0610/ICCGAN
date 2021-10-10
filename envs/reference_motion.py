@@ -231,13 +231,12 @@ class ReferenceMotion(object):
             pos_offset = np.add(self.base_pos_offset, self.cycle_pos_offset)
             self.set_base_pos_offset(pos_offset)
 
-    @staticmethod
-    def noise(size=1):
+    def noise(self, size=1):
         noise_std = 0.2
         noise_bound = 0.6
         noises = []
         while len(noises) < size:
-            noise = np.random.randn()*noise_std
+            noise = self.env.rng.randn()*noise_std
             if noise >= -noise_bound and noise <= noise_bound:
                 noises.append(noise)
         if size == 1:

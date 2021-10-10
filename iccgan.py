@@ -85,7 +85,7 @@ if __name__ == "__main__":
     else:
         utils.set_cuda_device(settings.device)
         from rl.runner.distributed import distributed, DistributedSyncHook
-        args = (partial(runner, train, env_wrapper,
+        args = (partial(runner, train, partial(env_wrapper, init_pose_with_noise=1),
                     partial(agent_wrapper, rank=settings.rank, device=settings.device, hooks=[DistributedSyncHook]), settings.seed+settings.rank
                 ), "gloo", settings.rank, WORLD_SIZE)
         kwargs = dict(

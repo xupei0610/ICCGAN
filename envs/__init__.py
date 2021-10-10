@@ -29,6 +29,7 @@ class MotionImitate(BulletEnv):
         super().__init__(**kwargs)
         self.overtime = arg_parse("overtime", 500)
         self.random_init_pose = arg_parse("random_init_pose", True)
+        self.init_pose_with_noise = arg_parse("init_pose_with_noise", False)
         self.observation = observation
 
         self.agent = self.AGENT(self)
@@ -154,7 +155,7 @@ class MotionImitate(BulletEnv):
             self.init_time = phase * max(0, self.ref_motion.duration - 100/self.fps)
      
         self.elapsed_time = self.init_time
-        ref_pose = self.ref_motion.set_sim_time(self.elapsed_time, add_noise=True)
+        ref_pose = self.ref_motion.set_sim_time(self.elapsed_time, add_noise=self.init_pose_with_noise)
         self.agent.pose = ref_pose
 
         dist = np.inf
