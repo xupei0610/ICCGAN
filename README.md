@@ -1,5 +1,5 @@
 # Interactive Control Generative Adversarial Network
-This code repo is to support the paper *A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Control*.
+This code repo is to support the paper _**A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Control**_.
 [[arXiv](https://arxiv.org/abs/2105.10066)]
 [[Youtube](https://www.youtube.com/watch?v=VHMyvDD3B_o)]
 
