@@ -14,9 +14,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("act", nargs='+')
 parser.add_argument("--ckpt", type=str, default=None)
 parser.add_argument("--max_samples", type=float, default=int(2e7))
-parser.add_argument("--world_size", type=int, default=8)
+parser.add_argument("--world_size", type=int, default=None)
 parser.add_argument("--seed", type=int, default=1)
-parser.add_argument("--test", action="store_true", default=False)
 parser.add_argument("--device", type=str, default=None)
 parser.add_argument("--rank", type=int, default=None)
 parser.add_argument("--master_addr", type=str, default="127.0.0.1")
@@ -25,9 +24,13 @@ settings = parser.parse_args()
 
 WORLD_SIZE = settings.world_size
 CHIEF_RANK = 0
-CHECKPOINT_DIR = "ckpt_{}".format("_".join(settings.act) if settings.ckpt is None else settings.ckpt)
-CHECKPOINT_FILE = "{}/ckpt".format(CHECKPOINT_DIR)
-LOG_DIR = None if settings.test else CHECKPOINT_DIR
+if settings.ckpt is None or not os.path.isfile(settings.ckpt):
+    CHECKPOINT_DIR = "ckpt_{}".format("_".join(settings.act) if settings.ckpt is None else settings.ckpt)
+    CHECKPOINT_FILE = "{}/ckpt".format(CHECKPOINT_DIR)
+else:
+    CHECKPOINT_FILE = settings.ckpt
+    CHECKPOINT_DIR = os.path.dirname(CHECKPOINT_FILE)
+LOG_DIR = None if settings.rank is None else CHECKPOINT_DIR
 HORIZON = 4096//WORLD_SIZE
 BATCH_SIZE = 256//WORLD_SIZE
 
@@ -80,7 +83,7 @@ def run_evaluator(render, child_processes=None):
 
 
 if __name__ == "__main__":
-    if settings.test:
+    if settings.rank is None:
         run_evaluator(render=True)
     else:
         utils.set_cuda_device(settings.device)

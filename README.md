@@ -31,21 +31,25 @@ We modify the Stable PD Controller implementation of Bullet3 regarding force cla
 
 To train a policy distributedly by running 8 workers:
 
-    $ python iccgan.py <motion> --rank 0
-    $ python iccgan.py <motion> --rank 1
-    $ python iccgan.py <motion> --rank 2
-    $ python iccgan.py <motion> --rank 3
-    $ python iccgan.py <motion> --rank 4
-    $ python iccgan.py <motion> --rank 5
-    $ python iccgan.py <motion> --rank 6
-    $ python iccgan.py <motion> --rank 7
+    $ python iccgan.py <motion> --rank 0 --world_size 8
+    $ python iccgan.py <motion> --rank 1 --world_size 8
+    $ python iccgan.py <motion> --rank 2 --world_size 8
+    $ python iccgan.py <motion> --rank 3 --world_size 8
+    $ python iccgan.py <motion> --rank 4 --world_size 8
+    $ python iccgan.py <motion> --rank 5 --world_size 8
+    $ python iccgan.py <motion> --rank 6 --world_size 8
+    $ python iccgan.py <motion> --rank 7 --world_size 8
 
 
 To visualize a trained policy by running:
 
-    $ python iccgan.py <motion> --test
+    $ python iccgan.py <motion>
 
 See `envs/data/motions` for supported motions in the name of `<motion>.json`.
+
+To visualize pre-trained policies by 
+
+    $ python iccgan.py <motion> --ckpt policies/<motion>
 
 ## Citation
     @article{10.1145/3480148,
