@@ -13,7 +13,6 @@ _**Abstract**_ --We present a simple and intuitive approach for interactive cont
 
 - Pytorch 1.8
 - Numba 0.52
-- Matplotlib 3.3.4
 - PyBullet 3.0.8
 
 We recommend to install all the requirements through Conda by
