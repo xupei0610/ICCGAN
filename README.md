@@ -52,19 +52,15 @@ To visualize pre-trained policies by
     $ python iccgan.py <motion> --ckpt policies/<motion>
 
 ## Citation
-    @article{10.1145/3480148,
+    @article{iccgan,
         author = {Xu, Pei and Karamouzas, Ioannis},
         title = {A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Control},
         year = {2021},
-        issue_date = {September 2021},
         publisher = {Association for Computing Machinery},
-        address = {New York, NY, USA},
         volume = {4},
         number = {3},
-        url = {https://doi.org/10.1145/3480148},
         doi = {10.1145/3480148},
-        journal = {Proc. ACM Comput. Graph. Interact. Tech.},
-        month = sep,
+        journal = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},
         articleno = {44},
         numpages = {22},
         keywords = {physics-based control, character animation, reinforcement learning, GAN}
