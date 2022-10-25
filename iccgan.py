@@ -52,6 +52,8 @@ def agent_wrapper(env, rank, device=None, hooks=[]):
     state_shape = [OBSERVATION_HISTORY, env.observation_space["state"].shape[-1]]
     ob_shape = [DISCRIMINATOR_OBSERVATION_HISTORY, env.observation_space["discriminator"].shape[-1]]
 
+    if is_evaluator and not os.path.isfile(CHECKPOINT_FILE):
+        print("[WARN] Failed to find checkpoint file from", CHECKPOINT_FILE)
     return ICCGAN(
         discriminator_learning_rate=1e-5,
         critic_learning_rate=1e-4,
