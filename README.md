@@ -1,4 +1,8 @@
 # Interactive Character Control Generative Adversarial Network
+
+**Deprecated**. Please visit https://github.com/xupei0610/CompositeMotion for our new implementation using IsaacGym.
+
+
 This code repo is to support the paper _**A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Control**_.
 [[arXiv](https://arxiv.org/abs/2105.10066)]
 [[Youtube](https://www.youtube.com/watch?v=VHMyvDD3B_o)]
