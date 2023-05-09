@@ -3,7 +3,7 @@
 **Deprecated**. Please visit https://github.com/xupei0610/CompositeMotion for our new implementation using IsaacGym.
 
 
-This code repo is to support the paper _**A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Control**_.
+This code repo is to support the paper _**A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Character Control**_.
 [[arXiv](https://arxiv.org/abs/2105.10066)]
 [[Youtube](https://www.youtube.com/watch?v=VHMyvDD3B_o)]
 
@@ -57,7 +57,7 @@ To visualize pre-trained policies by
 ## Citation
     @article{iccgan,
         author = {Xu, Pei and Karamouzas, Ioannis},
-        title = {A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Control},
+        title = {A GAN-Like Approach for Physics-Based Imitation Learning and Interactive Character Control},
         year = {2021},
         publisher = {Association for Computing Machinery},
         volume = {4},
